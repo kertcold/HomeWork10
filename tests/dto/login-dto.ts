@@ -13,6 +13,4 @@ export class loginDto {
   static createLoginWithIncorrectData(): loginDto {
     return new loginDto('incorrect-username', 'incorrect-password')
   }
-
 }
-
