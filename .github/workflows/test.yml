@@ -6,7 +6,7 @@ on:
       [main, develop]
   pull_request:
     branches:
-      - main
+      - feature/add-dto-pattern
 
 jobs:
   format-lint-test:
