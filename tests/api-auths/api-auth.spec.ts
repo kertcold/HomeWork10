@@ -23,8 +23,8 @@ test('log in with incorrect method', async ({ request }) => {
 test('log in with incorrect body structure', async ({ request }) => {
   const response = await request.post(authURL, {})
   const responseBody = await response.text()
-  console.log('response body: ', responseBody)
-  console.log('response status: ', response.status())
+  console.log('Response body: ', responseBody)
+  console.log('Response status: ', response.status())
   expect.soft(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 
@@ -34,12 +34,12 @@ test('log in with correct login data to receive JWT', async ({ request }) => {
     data: loginData,
   })
   const responseBody = await response.text()
-  console.log('response body:', responseBody)
+  console.log('Response body:', responseBody)
   expect.soft(response.status()).toBe(StatusCodes.OK)
   expect.soft(responseBody).toBeDefined()
   const jwtValue = await response.text()
   const jwtRegex = /^eyJhb[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/
-  console.log('response status:', response.status())
+  console.log('Response status:', response.status())
   expect.soft(jwtValue).toBeDefined()
   expect.soft(jwtValue).toMatch(jwtRegex)
 })
